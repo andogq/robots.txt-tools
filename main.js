@@ -14,22 +14,22 @@ function robots() {
 			
 			// Parse file and generate HTML
 			file = file.split("\n");
-			var html = '<style>#file {font-family: monospace;}</style><div id="file">';
+			var html = '<style>#file {font-family: monospace; background: white; position: absolute; top: 0; left: 0; bottom: 0; right: 0; padding: 20px;} p {color: black;} a {color: blue;}</style><div id="file">';
 			
 			// Loop through lines
 			for (i=0; i<file.length; i++) {
 				var line = file[i].split(" ");
 				if (line[0] == "Disallow:" || line[0] == "Allow:") {
-					html += '<p>' + line[0] + ' <a href="' + line[1] + '" target="_blank">' + line[1] + '</a></p>';
+					html += "<p>" + line[0] + ' <a href="' + line[1] + '" target="_blank">' + line[1] + "</a></p>";
 				} else {
-					html += '<p>' + line.join(" ") + '</p>';
+					html += "<p>" + line.join(" ") + "</p>";
 				}
 			}
-			html += '</div>';
+			html += "</div>";
 			
 			// Load HTML into page
 			document.body.innerHTML = html;
-			document.title = sitename + '\'s robots.txt￼';
+			document.title = sitename + "'s robots.txt";
 		}
 	}
 	request.open("GET", requestUrl, true);
