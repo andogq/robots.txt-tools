@@ -14,7 +14,7 @@ function robots() {
 			
 			// Parse file and generate HTML
 			file = file.split("\n");
-			var html = '<style>#file {font-family: monospace; background: white; position: absolute; top: 0; left: 0; bottom: 0; right: 0; padding: 20px;} p {color: black;} a {color: blue;}</style><div id="file">';
+			var html = '<style>#file {font-family: monospace; background: white; position: fixed; top: 0; left: 0; bottom: 0; right: 0; overflow: scroll; padding: 20px;} p {color: black;} a {color: blue;}</style><div id="file">';
 			
 			// Loop through lines
 			for (i=0; i<file.length; i++) {
