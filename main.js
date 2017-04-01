@@ -1,4 +1,4 @@
-function myscript() {
+function robots() {
 	// Get base of url and site name
 	var url = location.origin;
 	var sitename = url.split(":")[1].substring(2);
