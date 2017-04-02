@@ -19,6 +19,12 @@ function robots() {
 			// Loop through lines
 			for (i=0; i<file.length; i++) {
 				var line = file[i].split(" ");
+				
+				// Clean up line to remove any extra spaces from the array
+				while (line.indexOf("") != -1) {
+					line.splice(line.indexOf(""), 1);
+				}
+				
 				// Checking for characters that aren't in a proper URL, and not linking them
 				if ((line[0] == "Disallow:" || line[0] == "Allow:" || line[0] == "Sitemap:") && (line[1].indexOf("*") == -1 && line[1].indexOf("$") == -1)) {
 					html += "<p>" + line[0] + ' <a href="' + line[1] + '" target="_blank">' + line[1] + "</a></p>";
