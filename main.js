@@ -19,7 +19,8 @@ function robots() {
 			// Loop through lines
 			for (i=0; i<file.length; i++) {
 				var line = file[i].split(" ");
-				if (line[0] == "Disallow:" || line[0] == "Allow:") {
+				// Checking for characters that aren't in a proper URL, and not linking them
+				if ((line[0] == "Disallow:" || line[0] == "Allow:") && (line[1].indexOf("*") == -1 && line[1].indexOf("$") == -1)) {
 					html += "<p>" + line[0] + ' <a href="' + line[1] + '" target="_blank">' + line[1] + "</a></p>";
 				} else {
 					html += "<p>" + line.join(" ") + "</p>";
@@ -31,6 +32,7 @@ function robots() {
 			document.body.innerHTML = html;
 			document.title = sitename + "'s robots.txt";
 		} else if (this.readyState == 4 && this.status != 200) {
+			
 			// Banner for when robots.txt file not found
 			var html = '<div onclick="this.innerHTML=\'\';" style="background: red; color: white; position: fixed; top: 0; left: 0; right: 0; text-align: center; font-family: sans-serif;">robots.txt file not found!</div>';
 			document.body.innerHTML += html;
