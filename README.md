@@ -23,10 +23,10 @@
 
 ---
 
-### Example and code
-- Click below to test on GitHub or drag it to your bookmarks bar for the bookmarklet, nothing else necessary!
-  - <a href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://rawgit.com/tom-ando/robots.txt-tools/master/main_bookmarklet.js';})();">Robots.txt tools</a>
+### How to use the script
+1. Bookmark this page (or any page!) to your bookmarks bar
+2. Edit the name of the bookmark to `robots.txt tools`
+3. Change the url of the bookmark to:
 
----
-
-###### For all you skeptics, the code is `javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://rawgit.com/tom-ando/robots.txt-tools/master/main_bookmarklet.js';})();`
+	`javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://rawgit.com/tom-ando/robots.txtTools/master/main_bookmarklet.js';})();`
+4. That is it! Click the bookmark right now to test it
