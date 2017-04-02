@@ -28,7 +28,10 @@ function robots() {
 					}
 					
 					// Checking for characters that aren't in a proper URL, and not linking them
-					if ((line[0] == "Disallow:" || line[0] == "Allow:" || line[0] == "Sitemap:") && (line[1].indexOf("*") == -1 && line[1].indexOf("$") == -1)) {
+					if ((line[0] == "Disallow:" || line[0] == "Allow:" || line[0] == "Sitemap:") && line[1].indexOf("*") == -1) {
+						if (line[1].indexOf("$") != -1) {
+							line[1] = line[1].substring(0, line[1].length - 2);
+						}
 						html += "<p>" + line[0] + ' <a href="' + line[1] + '" target="_blank">' + line[1] + "</a></p>";
 					} else {
 						html += "<p>" + line.join(" ") + "</p>";
