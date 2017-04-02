@@ -30,10 +30,13 @@ function robots() {
 			// Load HTML into page
 			document.body.innerHTML = html;
 			document.title = sitename + "'s robots.txt";
+		} else if (this.readyState == 4 && this.status != 200) {
+			// Banner for when robots.txt file not found
+			var html = '<div onclick="this.innerHTML=\'\';" style="background: red; color: white; position: fixed; top: 0; left: 0; right: 0; text-align: center; font-family: sans-serif;">robots.txt file not found!</div>';
+			document.body.innerHTML += html;
 		}
 	}
 	request.open("GET", requestUrl, true);
 	request.send();
 }
-
 robots();
