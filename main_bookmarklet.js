@@ -1,7 +1,11 @@
 function robots() {
+	// Save old document before anything happens
+	var oldDocument = document.body.innerHTML;
+	
 	// Banner to show that something is happening
 	var banner = '<div style="background: green; color: white; position: fixed; top: 0; left: 0; right: 0; text-align: center; font-family: sans-serif; z-index: 9999999999999;">Loading...</div>';
 	document.body.innerHTML += banner;
+	
 	// Get base of url and site name
 	var url = location.origin;
 	var sitename = url.split(":")[1].substring(2);
@@ -19,7 +23,7 @@ function robots() {
 			if (file != '') {			
 				// Parse file and generate HTML
 				file = file.split("\n");
-				var html = '<style>#file {font-family: monospace; background: white; position: fixed; top: 0; left: 0; bottom: 0; right: 0; overflow: scroll; padding: 20px;} p {color: black;} a {color: blue;}</style><div id="file">';
+				var html = '<style>#file {font-family: monospace; background: white; position: fixed; top: 0; left: 0; bottom: 0; right: 0; overflow: scroll; padding: 20px;} p {color: black;} a {color: blue;}</style><div id="file"><a style="position: fixed; right: 10%;" href="#" id="close">Close</a>';
 				
 				// Loop through lines
 				for (i=0; i<file.length; i++) {
@@ -45,6 +49,12 @@ function robots() {
 				// Load HTML into page
 				document.body.innerHTML = html;
 				document.title = sitename + "'s robots.txt";
+				
+				// Add event listener for the close button
+				document.querySelector("#close").addEventListener("click", function() {
+					document.body.innerHTML = oldDocument;
+				});
+				
 			} else {
 				// Banner for when robots.txt file is empty
 				var html = '<div onclick="this.innerHTML=\'\';" style="background: red; color: white; position: fixed; top: 0; left: 0; right: 0; text-align: center; font-family: sans-serif; z-index: 9999999999999;">robots.txt file is empty!</div>';
