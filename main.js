@@ -1,4 +1,7 @@
 function robots() {
+	// Banner to show that something is happening
+	var banner = '<div style="background: green; color: white; position: fixed; top: 0; left: 0; right: 0; text-align: center; font-family: sans-serif; z-index: 9999999999999;">Loading...</div>';
+	document.body.innerHTML += banner;
 	// Get base of url and site name
 	var url = location.origin;
 	var sitename = url.split(":")[1].substring(2);
